@@ -1,0 +1,256 @@
+---
+jupyter:
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+  language_info:
+    codemirror_mode: r
+    file_extension: .r
+    mimetype: text/x-r-source
+    name: R
+    pygments_lexer: r
+    version: 4.2.1
+  nbformat: 4
+  nbformat_minor: 5
+---
+
+::: {.cell .markdown collapsed="false" pycharm="{\"name\":\"#%% md\\n\"}"}
+### Question 0
+
+-   Draw a concepts diagram that uses all the following Github
+    terminology
+    -   Include any missing keywords that will simplify the concepts
+        diagrams
+
+`Push`, `Repository`, `Clone`, `Pull`, `Pull Request`, `Branch`,
+`Merging`, `Github Client`, `README file`, `Private or Public`
+:::
+
+::: {.cell .code collapsed="false" pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# https://docs.google.com/document/d/1p5ZgHCmh67A_PLxC3s_QDafNoIcG92LyN4smP1qhHJM/edit
+```
+:::
+
+::: {.cell .markdown collapsed="false" pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 1
+
+`matrix(c(1,2,3,4,5,6) , nrow = 3)`
+
+-   Running the expression produces the following matrix
+
+  --- ---
+  1   4
+  2   5
+  3   6
+  --- ---
+
+-   How can you modify the call to `matrix()` to produce the following
+    matrix instead?
+
+          col_1   col_2
+  ------- ------- -------
+  row_1   1       2
+  row_2   3       4
+  row_3   5       6
+
+-   Note that you need to name the columns (col_1 and col_2) and name
+    the rows (row_1, row_2, row_3)
+
+Hint: Use the `?` symbol to invoke the matrix documentation
+:::
+
+::: {.cell .code execution_count="2"}
+``` {.R}
+# Add your photo here
+```
+:::
+
+::: {.cell .markdown pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 1 {#question-1}
+
+`matrix(c(1,2,3,4,5,6) , nrow = 3)`
+
+-   Running the expression produces the following matrix
+
+  --- ---
+  1   4
+  2   5
+  3   6
+  --- ---
+
+-   How can you modify the call to `matrix()` to produce the following
+    matrix instead?
+
+          col_1   col_2
+  ------- ------- -------
+  row_1   1       2
+  row_2   3       4
+  row_3   5       6
+
+-   Note that you need to name the columns (col_1 and col_2) and name
+    the rows (row_1, row_2, row_3)
+
+Hint: Use the `?` symbol to invoke the matrix documentation
+:::
+
+::: {.cell .code pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# Matrix_1<-matrix(c(1,2,3,4,5,6) , nrow = 3)
+> rownames(Matrix_1)<-c("row_1", "row_2", "row_3")
+> colnames(Matrix_1)<-c("col_1", "col_2")
+```
+:::
+
+::: {.cell .markdown pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 2
+
+-   Load then sort the airquality data frame on its `Temp` and `Solar.R`
+    columns in reverse order (largest to smallest values)
+    -   The function to sort a data frame is called order
+-   Display only the first 15 lines of your table
+:::
+
+::: {.cell .code pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# Solar.R Temp
+120     203   97
+122     237   96
+121     225   94
+123     188   94
+42      259   93
+126     183   93
+127     189   93
+43      250   92
+69      267   92
+70      272   92
+102     222   92
+125     197   92
+75      291   91
+124     167   91
+40      291   90
+```
+:::
+
+::: {.cell .markdown pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 3
+
+-   Sort the airquality data frame on its `Temp` in decreasing order and
+    `Solar.R` in increasing order
+-   Display only the first 15 lines of your table
+:::
+
+::: {.cell .code pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# Ozone Solar.R Wind Temp Month Day
+120    76     203  9.7   97     8  28
+122    84     237  6.3   96     8  30
+123    85     188  6.3   94     8  31
+121   118     225  2.3   94     8  29
+126    73     183  2.8   93     9   3
+127    91     189  4.6   93     9   4
+42     NA     259 10.9   93     6  11
+125    78     197  5.1   92     9   2
+102    NA     222  8.6   92     8  10
+43     NA     250  9.2   92     6  12
+69     97     267  6.3   92     7   8
+70     97     272  5.7   92     7   9
+124    96     167  6.9   91     9   1
+75     NA     291 14.9   91     7  14
+101   110     207  8.0   90     8   9
+```
+:::
+
+::: {.cell .markdown pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 4
+
+-   There are various ways to select a subset of observations from a
+    data frame.
+
+-   Consult your [R Reference
+    Card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf),
+    see `Data Selection and Manipulation` section.
+
+    -   What operations can you use to select all observations where the
+        temperature is 72. Give at least two different answers to this
+        question
+:::
+
+::: {.cell .code execution_count="2" pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# subset(airquality, Temp==72)
+# Ozone Solar.R Wind Temp Month Day
+2      36     118  8.0   72     5   2
+48     37     284 20.7   72     6  17
+114     9      36 14.3   72     8  22
+
+# airquality %>% filter(Temp==72)
+# Ozone Solar.R Wind Temp Month Day
+1    36     118  8.0   72     5   2
+2    37     284 20.7   72     6  17
+3     9      36 14.3   72     8  22
+```
+:::
+
+::: {.cell .markdown pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 6
+
+-   You may have noticed when working with the `airqulity` data that
+    some values show as `NA`
+-   `NA` stands for not available, or missing values.
+-   A major part of data wrangling consists of cleaning missing values
+    by either:
+    -   Dropping the lines that have missing values
+    -   Sometimes we can drop the column with missing values if the
+        column is made of predominantly missing values
+    -   Imputing the missing values, which uses educated guesses (or
+        more complex algorithms) to fill the missing values
+-   Find and remove all rows that are missing values for the `Solar.R`
+    or `Ozone` variables
+-   Save the cleaned data to a new data frame called airquality_no_na
+    -   How many lines have been removed?
+:::
+
+::: {.cell .code pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# q_6=arrange(airquality, desc(Solar.R))
+# q_6[-c(147:153), ]
+# no_na=q_6[-c(147:153), ]
+# arrange(no_na, Month)
+# airquality_no_na=arrange(no_na, Month)
+# airquality_no_na
+#
+# 7 rows of data have been removed by dropping all the N/A from Solar.R 
+# in descending order.
+```
+:::
+
+::: {.cell .markdown pycharm="{\"name\":\"#%% md\\n\"}"}
+#### Question 7
+
+-   Let\'s use a different strategy and impute the missing value.
+    -   replace the missing values for Solar.R using that month\'s
+        average.
+    -   Example:
+        -   The missing value for line 6 should be replaced with the
+            average for month 5.
+        -   The missing value for line 97 should be replaced with the
+            average for month 8.
+:::
+
+::: {.cell .code pycharm="{\"name\":\"#%%\\n\"}"}
+``` {.R}
+# q7subset=airquality
+# may_data=subset(q7subset, Month==5)
+# mean_may=mean(may_data$Solar.R, na.rm=TRUE)
+# may_data$Solar.R[is.na(may_data$Solar.R)]=mean_may
+# aug_data=subset(q7subset, Month==8)
+# mean_aug=mean(aug_data$Solar.R, na.rm=TRUE)
+# aug_data$Solar.R[is.na(aug_data$Solar.R)]=mean_aug
+# june_data=subset(q7subset, Month==6)
+# july_data=subset(q7subset, Month==7)
+# sept_data=subset(q7subset, Month==9)
+# rbind(may_data,june_data,july_data,aug_data,sept_data)
+```
+:::
